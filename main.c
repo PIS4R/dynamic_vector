@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "vector.h"
 
 int main() {
@@ -15,12 +14,6 @@ int main() {
         printf("Incorrect input data\n");
         return 2;
     }
-
-    //tab = (int *) malloc(N * sizeof(int));
-    //if (tab == NULL) {
-    //    printf("Failed to allocate memory\n");
-    //    return 8;
-    //}
 
     int err = vector_create_struct(&vector, N);
     if(err == 1){
@@ -46,7 +39,6 @@ int main() {
             break;
         }
         else if(choose == 1){
-            //add
             printf("Podaj kolejne liczby, które mają zostać dodane do tablicy: ");
             while(1){
                 if (scanf("%d", &ch) != 1) {
@@ -54,25 +46,17 @@ int main() {
                    vector_destroy_struct(&vector);
                     return 1;
                 }
-               // printf(" ; %d ; ", ch);
-                //ch = getchar();
-
                 if(ch == 0){
-                    //printf("lotafak\n");
                     break;
                 }
 
                 i++;
-                //if(i - 1> vector->capacity){ /// todo
-                  //  printf("Failed to allocate memory\n");
-                 //   break;
-                //}
+
                 if(vector_push_back(vector, ch) == 2){
                     printf("Failed to allocate memory\n");
                     break;
                 }
             }
-            //printf("aaaa");
             if(vector->size != 0)
                 vector_display(vector);
             else{
@@ -81,7 +65,6 @@ int main() {
             }
         }
         else if(choose == 2){
-            //remove
             printf("Podaj kolejne liczby, które mają zostać usuniete z tablicy: ");
             while(1){
                 if (scanf("%d", &ch) != 1) {
@@ -90,7 +73,6 @@ int main() {
                     return 1;
                 }
                 if(ch == 0){
-                    //printf("lotafak\n");
                     break;
                 }
                 i++;

@@ -79,7 +79,6 @@ int vector_push_back(struct vector_t *a, int value){
         if (temp == NULL){
             return 2;
         }
-        //printf("aaaaa");
 
         a->ptr = temp;
         a->capacity = a->capacity * 2;
@@ -114,20 +113,17 @@ int vector_erase(struct vector_t *a, int value){
         }
     }
 
-    if(a->size < a->capacity/4){ //&& a->capacity > 1
+    if(a->size < a->capacity/4){
         if(a->capacity - a->size > 1){
             int *temp = (int*)realloc(a->ptr,  a->capacity/2 * sizeof(int));
             if (temp != NULL){
-               // return 2;
                 a->ptr = temp;
                 a->capacity = a->capacity / 2;
             }
-            //printf("aaaaa");
 
         } else{
             int *temp1 = (int*)realloc(a->ptr,  1 * sizeof(int));
             if (temp1 != NULL){
-              //  return 2;
                 a->ptr = temp1;
                 a->capacity = 1;
             }
